@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+
+  "dataset": {
+    "root": "../data/image_text",
+    "im_size": 128,
+    "im_channels": 3,
+    "caption_keys": ["caption", "text"],
+    "batch_size": 16,
+    "num_workers": 4
+  },
+
+  "diffusion": {
+    "timesteps": 1000,
+    "beta_start": 0.0001,
+    "beta_end": 0.02
+  },
+
+  "train": {
+    "epochs": 20,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "max_text_len": 64,
+    "log_interval": 50,
+    "save_every": 1
+  },
+
+  "cot": {
+    "embed_dim": 512,
+    "hidden_dim": 1024
+  },
+
+  "unet": {
+    "base_ch": 64,
+    "ch_mult": [1, 2, 4, 8],
+    "img_size": 128
+  },
+
+  "clip_model": {
+    "tokenizer_name": "bert-base-uncased",
+    "text_encoder": {
+      "embed_dim": 512,
+      "max_len": 64,
+      "depth": 6,
+      "num_heads": 8
+    }
+  },
+
+  "paths": {
+    "clip_ckpt_dir": "runs/clip_forest",
+    "output_dir": "runs/diffusion_cot"
+  }
+}

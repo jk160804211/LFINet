@@ -1,0 +1,38 @@
+{
+  "device": "auto",
+
+  "text": {
+    "tokenizer_name": "bert-base-uncased",
+    "max_len": 64,
+    "text_encoder_ckpt": "runs/clip_forest/text_encoder_best.pt",
+    "reasoner_ckpt": "runs/diffusion_cot/cot_epoch20.pt"
+  },
+
+  "clip_model": {
+    "embed_dim": 512,
+    "txt_depth": 6,
+    "txt_heads": 8
+  },
+
+  "unet": {
+    "in_ch": 3,
+    "base_ch": 64,
+    "ch_mult": [1, 2, 4, 8],
+    "temb_dim": 512,
+    "img_size": 128,
+    "unet_ckpt": "runs/diffusion_cot/unet_epoch20.pt"
+  },
+
+  "diffusion": {
+    "timesteps": 1000,
+    "beta_start": 0.0001,
+    "beta_end": 0.02,
+    "sample_dir": "samples_cot"
+  },
+
+  "sampling": {
+    "prompts": [
+        "The aerial view reveals the dense, smooth canopy and broad, spreading crown characteristic of Fagus sylvatica"
+    ]
+  }
+}
