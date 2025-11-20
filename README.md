@@ -1,6 +1,8 @@
-##Data set form
+📁  Dataset Format (pura_flat)
 
-dataset/pura_flat/
+Your dataset directory must follow this structure:
+
+dataset/image_text/
 ├─ 0.jpg
 ├─ 0.json
 ├─ 1.jpg
