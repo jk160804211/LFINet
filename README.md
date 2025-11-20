@@ -11,7 +11,7 @@ to generate realistic forestry imagery from natural-language descriptions.
 
 
 ### Train LFINet
-This stage trains:
+This stage including:
   * CLIP pre-traing <br>
     ```bash python tools.tran_clip --config config/clip_forest.json ```
 ```json
