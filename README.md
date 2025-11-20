@@ -13,7 +13,9 @@ to generate realistic forestry imagery from natural-language descriptions.
 ### Train LFINet
 This stage including:
   * CLIP pre-traing <br>
-    ```bash python tools.tran_clip --config config/clip_forest.json ```
+    ```bash
+     python tools.tran_clip --config config/clip_forest.json
+     ```
 ```json
 clip_forest.json
 {
@@ -62,7 +64,10 @@ clip_forest.json
 }
 ```
   * CoT-Diffusion trianing <br>
-```bash python tools.tran_diffusion_cot --config config/diffusion_cot.json ```<br>
+```bash
+python tools.tran_diffusion_cot --config config/diffusion_cot.json
+```
+
 ```json
 diffusion_cot.json
 {
