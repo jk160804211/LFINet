@@ -1,4 +1,5 @@
 # LFINet: Linguistic Semantics Fused Chain-of-Thought Diffusion Model for Realistic Tree Sample Generation from Aerial Imagery
+![](Figures/showFig.png)
 
 LFINet is a text-to-image pipeline designed for forestry applications.  
 It combines:
