@@ -11,14 +11,41 @@ to generate realistic forestry imagery from natural-language descriptions.
 
 ### Train LFINet
 This stage including:
-  * CLIP pre-traing <br>
+  * CLIP pre-traing
+    - configuration
+    ```arduino
+    config/clip_forest.json
+    ```
+    - trainng
     ```bash
      python tools.tran_clip --config config/clip_forest.json
      ```
   * CoT-Diffusion trianing <br>
+    - configuration
+    ```arduino
+    config/diffusion_cot.json
+    ```
+    - training
      ```bash
      python tools.tran_diffusion_cot --config config/diffusion_cot.json
      ```
+### Text-to-Image Sampling
+* configuration
+```arduino
+config/diffusion_cot_sample.json
+```
+Example:
+```json
+{
+  "prompts": [
+    "Aerial view of a dense conifer forest with dark-green clustered crowns."
+  ]
+}
+```
+* Run sampling
+```bash
+ python tools/sample_diffusion_cot.py --config config/diffusion_cot_sample.json
+```
 
 ### Dataset Format
 ```bash
