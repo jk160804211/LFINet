@@ -5,7 +5,7 @@
     "tokenizer_name": "bert-base-uncased",
     "max_len": 64,
     "text_encoder_ckpt": "runs/clip_forest/text_encoder_best.pt",
-    "reasoner_ckpt": "runs/diffusion_cot/cot_epoch20.pt"
+    "reasoner_ckpt": "runs/diffusion_cot/cot_epoch95.pt"
   },
 
   "clip_model": {
@@ -14,13 +14,18 @@
     "txt_heads": 8
   },
 
+    "cot": {
+    "embed_dim": 512,
+    "hidden_dim": 1024
+  },
+
   "unet": {
     "in_ch": 3,
     "base_ch": 64,
     "ch_mult": [1, 2, 4, 8],
     "temb_dim": 512,
     "img_size": 128,
-    "unet_ckpt": "runs/diffusion_cot/unet_epoch20.pt"
+    "unet_ckpt": "runs/diffusion_cot/unet_epoch95.pt"
   },
 
   "diffusion": {
@@ -30,9 +35,9 @@
     "sample_dir": "samples_cot"
   },
 
-  "sampling": {
+  "sampling": { 
     "prompts": [
-        "The aerial view reveals the dense, smooth canopy and broad, spreading crown characteristic of Fagus sylvatica"
+        "A high-resolution aerial view of a fully grown Abies alba tree, showing its conical crown structure, dense dark-green needles, and well-defined vertical branching pattern. The canopy exhibits natural textural variation caused by light–shadow interaction, with subtle phenological cues indicating a mature evergreen stage. Forest background is minimal to keep the focus on the tree morphology"
     ]
   }
 }

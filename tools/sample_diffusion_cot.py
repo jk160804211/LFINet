@@ -83,10 +83,8 @@ def sample_from_text(
         #  ε_theta(x_t, t, cond)
         eps = unet(x_t, t, cond_emb)
 
-        # beta_t = scheduler.betas[step]
         alpha_t = scheduler.alphas[step]
         alpha_bar_t = scheduler.alphas_cumprod[step]
-        # alpha_bar_prev = scheduler.alphas_cumprod_prev[step]
         posterior_var = scheduler.posterior_variance[step]
 
 
@@ -102,7 +100,7 @@ def sample_from_text(
         else:
             x_t = mean
 
-    # [-1, 1] -> [0, 1]->[0,256]
+    # [-1, 1] -> [0, 1]
     x_0 = x_t.clamp(-1.0, 1.0)
     x_0 = (x_0 + 1.0) / 2.0
 
@@ -128,6 +126,7 @@ def main():
     unet_cfg = cfg["unet"]
     diff_cfg = cfg["diffusion"]
     samp_cfg = cfg["sampling"]
+    cot_cfg = cfg["cot"]
 
     # 3) tokenizer
     tokenizer_name = text_cfg["tokenizer_name"]
@@ -153,8 +152,8 @@ def main():
     reasoner = CoTGRUReasoner(
         text_encoder=text_encoder,
         tokenizer=tokenizer,
-        embed_dim=clip_cfg["embed_dim"],
-        hidden_dim=clip_cfg["embed_dim"],
+        embed_dim=cot_cfg["embed_dim"],
+        hidden_dim=cot_cfg["hidden_dim"],
         max_len=text_cfg["max_len"],
     ).to(device)
 
